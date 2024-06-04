@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -8,6 +8,7 @@ module.exports = {
       },
     },
   },
+  // eslint-disable-next-line no-undef
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
@@ -16,17 +17,11 @@ module.exports = {
           primary: "#0FCFEC",
           secondary: "#19D3AE",
           accent: "#C149AD",
-
           neutral: "#3A4256",
-
           "base-100": "#FFFFFF",
-
           info: "#93E6FB",
-
           success: "#80CED1",
-
           warning: "#EFD8BD",
-
           error: "#E58B8B",
         },
       },

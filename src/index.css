@@ -1,17 +1,52 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.navbar li a.active {
+  background-color: #0fceec2e !important;
+  color: black !important;
+}
+.dashboard-menu li a.active {
+  background-color: #0fceec2e !important;
+  color: black !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar li a:hover {
+  background-color: #0fceec2e !important;
+  color: black !important;
+}
+.dashboard-menu li a:hover {
+  background-color: #0fceec2e !important;
+  color: black !important;
 }
 
+.service-card:hover figure {
+  transform: scale(1.08);
+  transition: all 0.5s ease-in;
+}
+
+.day-picke-box .rdp-month {
+  margin: auto;
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: #0fceec2e;
+}
+
+.rdp-day_selected {
+  background-color: #0fceec6e;
+  color: #191919ad;
+}
+.rdp-day_selected:hover {
+  background-color: #0fceec6e;
+  color: #fff;
+}
+
+.bannerImage::before {
+  content: "";
+  background-image: url("../src/assets/images/chair.png");
+  opacity: 0.1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
