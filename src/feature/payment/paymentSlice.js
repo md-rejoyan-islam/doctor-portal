@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createPaymentIntent } from "./paymentApiSlice";
+import { createPaymentIntent, getAllPayments } from "./paymentApiSlice";
 
 // create auth slice
 const paymentSlice = createSlice({
   name: "payment",
   initialState: {
+    payments: [],
     client_secret: null,
     error: null,
     message: null,
@@ -18,8 +19,16 @@ const paymentSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+
+      // all payments
+      .addCase(getAllPayments.rejected, () => {})
+      .addCase(getAllPayments.fulfilled, (state, action) => {
+        state.message = action.payload.message;
+        state.payments = action.payload.data;
+      })
+
       // all users
-      .addCase(createPaymentIntent.rejected, (state, action) => {
+      .addCase(createPaymentIntent.rejected, () => {
         // state.error = action.error.message;
         // state.loading = false;
       })

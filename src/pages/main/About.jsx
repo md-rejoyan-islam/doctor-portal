@@ -1,59 +1,11 @@
 import about from "../../assets/images/Banner_Images_About_Us.jpg";
 import { CiStethoscope } from "react-icons/ci";
 import { FaBriefcase } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { getAllDoctorsData } from "../../feature/doctor/doctorSlice";
 
 function About() {
-  const teams = [
-    {
-      id: 1,
-      name: "John Doe",
-      image: "https://www.ksosn.com/wp-content/uploads/2021/07/syed-shah.png",
-      position: "Transplant Nephrologist",
-      role: "President, Director",
-    },
-    {
-      id: 2,
-      name: "Isaac Newton",
-      image: "https://www.ksosn.com/wp-content/uploads/2021/07/syed-shah.png",
-      position: "Cardiologist",
-      role: "Assistant Director",
-    },
-    {
-      id: 3,
-      name: "Albert Einstein",
-      image: "https://www.ksosn.com/wp-content/uploads/2021/07/syed-shah.png",
-      position: "Neurologist",
-      role: "Assistant Director",
-    },
-    {
-      id: 4,
-      name: "Marie Curie",
-      image: "https://www.ksosn.com/wp-content/uploads/2021/07/syed-shah.png",
-      position: "Oncologist",
-      role: "Assistant Director",
-    },
-    {
-      id: 5,
-      name: "Nikola Tesla",
-      image: "https://www.ksosn.com/wp-content/uploads/2021/07/syed-shah.png",
-      position: "Surgeon",
-      role: "Board Member",
-    },
-    {
-      id: 6,
-      name: "Galileo Galilei",
-      image: "https://www.ksosn.com/wp-content/uploads/2021/07/syed-shah.png",
-      position: "Orthopedic Surgeon",
-      role: "Arthopedic Surgeon",
-    },
-    {
-      id: 7,
-      name: "Aristotle",
-      image: "https://www.ksosn.com/wp-content/uploads/2021/07/syed-shah.png",
-      position: "Dentist",
-      role: "Dentist",
-    },
-  ];
+  const { doctors } = useSelector(getAllDoctorsData);
 
   return (
     <div>
@@ -79,13 +31,13 @@ function About() {
           Leadership Team
         </h3>
         <div className="grid lg:grid-cols-4 sm:grid-cols-2  md:grid-cols-3  gap-6 py-10">
-          {teams.map((team) => (
+          {doctors.map((team) => (
             <div
               className=" border rounded-md border-sky-200 hover:border-orange-200  shadow-lg"
               key={team.id}
             >
               <img
-                src="https://www.ksosn.com/wp-content/uploads/2021/07/syed-shah.png"
+                src={team?.photo}
                 alt=""
                 className="rounded-full w-32 h-32 mx-auto my-4"
               />
@@ -96,10 +48,11 @@ function About() {
               <div className="mt-3 block p-6">
                 <p className="flex gap-2 items-center justify-center">
                   <CiStethoscope className="text-primary text-2xl" />
-                  {team.position}
+                  {team?.specialty}
                 </p>
-                <p className="flex gap-2 items-center justify-center pt-1">
-                  <FaBriefcase className="text-primary text-xl" /> {team.role}
+                <p className="flex gap-2  justify-center pt-1 ">
+                  <FaBriefcase className="text-primary text-xl w-10" />{" "}
+                  {team?.degree}
                 </p>
               </div>
             </div>

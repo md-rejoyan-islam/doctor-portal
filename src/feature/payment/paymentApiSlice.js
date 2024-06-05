@@ -24,10 +24,25 @@ export const createPaymentIntent = createAsyncThunk(
 
 // create doctor
 export const createPayment = createAsyncThunk(
-  "doctor/createPayment",
+  "payment/createPayment",
   async (data) => {
     try {
       const response = await axios.post(`${API_URL}/pay`, data, {
+        withCredentials: true,
+      });
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response.data.error.message);
+    }
+  }
+);
+
+// get all payments
+export const getAllPayments = createAsyncThunk(
+  "payment/getAllPayments",
+  async (data) => {
+    try {
+      const response = await axios.get(`${API_URL}?email=${data.email}`, {
         withCredentials: true,
       });
       return response.data;

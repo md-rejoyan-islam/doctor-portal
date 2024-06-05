@@ -18,6 +18,7 @@ import PublicRoute from "./PublicRoute";
 import Payment from "../pages/dashboard/payment/Payment";
 import ForgotPassword from "../pages/main/auth/ForgotPassword";
 import AllFeedbacks from "../pages/dashboard/AllFeedbacks";
+import MyPayment from "../pages/dashboard/MyPayment";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
         element: <MyAppointment />,
       },
       {
+        path: "mypayment",
+        element: <MyPayment />,
+      },
+      {
         path: "allusers",
         element: (
           <AdminRoute>
@@ -107,11 +112,7 @@ const router = createBrowserRouter([
       },
       {
         path: "allfeedbacks",
-        element: (
-          <AdminRoute>
-            <AllFeedbacks />
-          </AdminRoute>
-        ),
+        element: <AllFeedbacks />,
       },
       {
         path: "payment/:id",

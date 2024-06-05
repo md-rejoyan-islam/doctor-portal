@@ -6,11 +6,11 @@ const MyAppointment = () => {
   const { bookings } = useSelector(getBookingData);
 
   return (
-    <div className="p-4">
-      <h3 className="text-3xl mb-5">My Appointments</h3>
-      <div className="overflow-x-auto pb-10">
+    <div className="bg-white p-4 rounded-lg">
+      <h3 className="text-3xl mb-4  text-center">My Appointments</h3>
+      <div className="overflow-x-auto pb-4">
         <table className="table w-full ">
-          <thead>
+          <thead className="bg-[#d4f6fc88] rounded-md">
             <tr>
               <th></th>
               <th>Name</th>

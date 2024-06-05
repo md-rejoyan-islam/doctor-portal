@@ -32,7 +32,7 @@ const AddDoctor = () => {
     formData.append("specialty", data.specialty);
 
     formData.append("photo", file[0]);
-    formData.append("reset", reset);
+    formData.append("degree", data.degree);
 
     const response = await dispatch(createDoctor(formData));
     if (response?.payload?.success) {
@@ -46,8 +46,8 @@ const AddDoctor = () => {
   }
 
   return (
-    <div className="px-10 py-20">
-      <div className="w-96 p-7 border shadow-lg rounded-md mx-auto">
+    <div className="px-10 py-10 ">
+      <div className="w-96 p-7 border shadow-lg rounded-lg mx-auto bg-white">
         <h2 className="text-4xl text-center pb-4">Add A Doctor</h2>
         <form onSubmit={handleSubmit(handleAddDoctor)}>
           <div className="form-control w-full max-w-xs">
@@ -82,6 +82,22 @@ const AddDoctor = () => {
             />
             {errors.email && (
               <p className="text-red-500">{errors.email.message}</p>
+            )}
+          </div>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Degree</span>
+            </label>
+            <input
+              type="text"
+              {...register("degree", {
+                required: "Degree is required!",
+              })}
+              placeholder="Enter doctor degree "
+              className="input input-bordered w-full max-full focus:border-transparent focus:outline-[#7ef0ff74] focus:outline-offset-0  focus:outline-4"
+            />
+            {errors.degree && (
+              <p className="text-red-500">{errors.degree.message}</p>
             )}
           </div>
           <div className="form-control w-full max-w-xs">

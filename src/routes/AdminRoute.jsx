@@ -6,8 +6,8 @@ import PropTypes from "prop-types";
 const AdminRoute = ({ children }) => {
   const { user, loading } = useSelector(getAuthData);
   const isAdmin = user.role === "admin";
+  const id = user._id;
 
-  // const [isAdmin, isAdminLoading] = useAdmin(user?.email);
   const location = useLocation();
 
   if (loading) {
@@ -16,6 +16,10 @@ const AdminRoute = ({ children }) => {
 
   if (isAdmin) {
     return children;
+  } else if (id) {
+    return (
+      <Navigate to="/dashboard" state={{ from: location }} replace></Navigate>
+    );
   }
 
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;

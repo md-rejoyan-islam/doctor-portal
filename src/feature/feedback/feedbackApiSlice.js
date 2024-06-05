@@ -6,9 +6,9 @@ const API_URL = import.meta.env.VITE_SERVER_API_URL + "/api/v1/feedbacks";
 // get all feedback
 export const getAllFeedback = createAsyncThunk(
   "payment/getAllFeedback",
-  async () => {
+  async (data) => {
     try {
-      const response = await axios.get(API_URL, {
+      const response = await axios.get(API_URL + `?email=${data.email}`, {
         withCredentials: true,
       });
       return response.data;

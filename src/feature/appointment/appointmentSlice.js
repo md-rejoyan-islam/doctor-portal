@@ -20,7 +20,7 @@ const appointmentSlice = createSlice({
     builder
       // all users
       .addCase(getAllAppointments.rejected, (state, action) => {
-        state.error = action.payload.error;
+        state.error = action.error.message;
         state.loading = false;
       })
       .addCase(getAllAppointments.fulfilled, (state, action) => {

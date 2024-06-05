@@ -23,11 +23,11 @@ const feedbacktSlice = createSlice({
   extraReducers: (builder) => {
     builder
       // all feedback
-      .addCase(getAllFeedback.rejected, (state, action) => {
-        state.error = action.error.message;
+      .addCase(getAllFeedback.rejected, () => {
+        // state.error = action.error.message;
       })
       .addCase(getAllFeedback.fulfilled, (state, action) => {
-        state.message = action.payload.message;
+        // state.message = action.payload.message;
         state.feedbacks = action.payload.data;
       })
       // create feedback

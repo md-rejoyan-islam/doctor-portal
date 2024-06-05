@@ -7,9 +7,12 @@ import {
 import { getAllFeedbackData } from "../../feature/feedback/feedbackSlice";
 import { formatDate } from "date-fns";
 import ConfirmationModal from "./ConfirmationModel";
+import { getAuthData } from "../../feature/auth/authSlice";
 
 function AllFeedbacks() {
   const [deletingFeedback, setDeletingFeedback] = useState(null);
+
+  const { user } = useSelector(getAuthData);
 
   const dispatch = useDispatch();
   const { feedbacks } = useSelector(getAllFeedbackData);
@@ -23,15 +26,15 @@ function AllFeedbacks() {
   };
 
   useEffect(() => {
-    dispatch(getAllFeedback());
+    dispatch(getAllFeedback({ email: user.email }));
   }, [dispatch]);
 
   return (
-    <div className="p-4">
-      <h3 className="text-3xl mb-5">All Feedbacks</h3>
-      <div className="overflow-x-auto pb-10">
+    <div className="bg-white p-4 rounded-md">
+      <h3 className="text-3xl mb-4 text-center ">All Feedbacks</h3>
+      <div className="overflow-x-auto pb-6 ">
         <table className="table w-full ">
-          <thead>
+          <thead className="bg-[#d4f6fc88] rounded-md">
             <tr>
               <th></th>
               <th>Name</th>

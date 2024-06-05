@@ -19,8 +19,8 @@ const doctorSlice = createSlice({
   extraReducers: (builder) => {
     builder
       // all users
-      .addCase(getAllDoctors.rejected, (state, action) => {
-        state.error = action.error.message;
+      .addCase(getAllDoctors.rejected, (state) => {
+        // state.error = action.error.message;
         state.loading = false;
       })
       .addCase(getAllDoctors.fulfilled, (state, action) => {
