@@ -21,7 +21,7 @@ function About() {
         className="hidden sm:block"
       >
         <div className="hero-content text-center text-white h-full  mx-auto">
-          <h1 className="text-6xl font-bold backdrop-blur-md text-primary backdrop-brightness-100">
+          <h1 className="text-6xl font-bold backdrop-blur-md text-blue-300 backdrop-brightness-100">
             About Us
           </h1>
         </div>
@@ -34,7 +34,7 @@ function About() {
           {doctors.map((team) => (
             <div
               className=" border rounded-md border-sky-200 hover:border-orange-200  shadow-lg"
-              key={team.id}
+              key={team._id}
             >
               <img
                 src={team?.photo}

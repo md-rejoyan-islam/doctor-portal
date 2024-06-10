@@ -1,8 +1,9 @@
 import { useState } from "react";
 import DragAndDropPhoto from "../../components/dashboard/addDoctor/DragAndDropPhoto";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAuthData } from "../../feature/auth/authSlice";
+import { updateUserProfile } from "../../feature/auth/authApiSlice";
 
 function Profile() {
   const { user } = useSelector(getAuthData);
@@ -11,20 +12,26 @@ function Profile() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
 
   const [file, setFile] = useState(null);
+
+  const dispatch = useDispatch();
 
   const handleProfileUpdate = async (data) => {
     if (file) data.photo = file[0];
 
     const formData = new FormData();
     Object.keys(data).forEach((key) => {
-      formData.append(key, data[key] || null);
+      if (data[key]) {
+        formData.append(key, data[key]);
+      }
     });
 
-    console.log(formData);
+    //    id add
+    formData.append("id", user._id);
+
+    dispatch(updateUserProfile(formData));
   };
 
   return (
@@ -73,7 +80,7 @@ function Profile() {
             </label>
             <input
               type="text"
-              {...register("Phone")}
+              {...register("phone")}
               defaultValue={user?.phone}
               className="input input-bordered w-full max-full focus:border-transparent focus:outline-[#7ef0ff74] focus:outline-offset-0  focus:outline-4"
               placeholder="Enter you phone number"
@@ -92,6 +99,7 @@ function Profile() {
                   type="radio"
                   name="gender"
                   value="male"
+                  checked={user?.gender === "male"}
                   className="w-4 h-4"
                   {...register("gender")}
                 />
@@ -103,6 +111,7 @@ function Profile() {
                   name="gender"
                   value="female"
                   className="w-4 h-4"
+                  checked={user?.gender === "female"}
                   {...register("gender")}
                 />
                 <span className="mb-1"> Female</span>
@@ -117,6 +126,7 @@ function Profile() {
               type="text"
               {...register("address", {})}
               placeholder="Enter your address"
+              defaultValue={user?.address}
               className="input input-bordered w-full max-full focus:border-transparent focus:outline-[#7ef0ff74] focus:outline-offset-0  focus:outline-4"
             />
             {errors.address && (

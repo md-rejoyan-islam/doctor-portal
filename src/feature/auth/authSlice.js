@@ -5,6 +5,7 @@ import {
   logout,
   onAuthStateChange,
   signInWithGoogle,
+  updateUserProfile,
   userLogin,
   userRegister,
 } from "./authApiSlice";
@@ -101,17 +102,17 @@ const authSlice = createSlice({
         state.loading = false;
         state.user = action.payload.data;
         // state.message = action.payload.message;
-      });
+      })
 
-    // // update user data
-    // .addCase(updateUserProfile.rejected, (state, action) => {
-    //   state.error = action.error.message;
-    // })
-    // .addCase(updateUserProfile.fulfilled, (state, action) => {
-    //   state.user = action.payload.data;
-    //   state.message = action.payload.message;
-    //   localStorage.setItem("user", JSON.stringify(action.payload.data));
-    // })
+      // update user data
+      .addCase(updateUserProfile.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(updateUserProfile.fulfilled, (state, action) => {
+        state.user = action.payload.data;
+        state.message = action.payload.message;
+        localStorage.setItem("user", JSON.stringify(action.payload.data));
+      });
     // // update user password
     // .addCase(updateUserPassword.rejected, (state, action) => {
     //   state.error = action.error.message;

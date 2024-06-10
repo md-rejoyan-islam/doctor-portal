@@ -142,7 +142,7 @@ export const loggedInUser = createAsyncThunk(
         ...response.data,
         data: {
           ...response.data.data,
-          photo: data.photoURL,
+          photo: response?.data.data.photo || data.photoURL,
         },
       };
     } catch (error) {
@@ -156,15 +156,14 @@ export const updateUserProfile = createAsyncThunk(
   "auth/updateUserProfile",
   async (data) => {
     try {
-      const response = await axios.put(
-        `${API_URL}/api/v1/users/${data._id}`,
+      const id = data.get("id");
+      const response = await axios.patch(
+        `${API_URL}/api/v1/users/${id}`,
         data,
         {
           withCredentials: true,
         }
       );
-      //modal close
-      document.getElementById("edit_personal_details").click();
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.error.message);

@@ -31,7 +31,7 @@ const DashboardNavbar = () => {
             <div className="avatar">
               <div className="w-7 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 {user.photo ? (
-                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img src={user?.photo} />
                 ) : (
                   <span className="flex justify-center items-center h-full">
                     <FaUser className=" text-secondary  text-lg mx-auto" />
