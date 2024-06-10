@@ -20,12 +20,10 @@ const doctorSlice = createSlice({
     builder
       // all users
       .addCase(getAllDoctors.rejected, (state) => {
-        // state.error = action.error.message;
         state.loading = false;
       })
       .addCase(getAllDoctors.fulfilled, (state, action) => {
         state.loading = false;
-        state.message = action.payload.message;
         state.doctors = action.payload.data;
       })
       .addCase(createDoctor.rejected, (state, action) => {
