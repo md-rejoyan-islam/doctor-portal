@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createFeedback } from "../../../feature/feedback/feedbackApiSlice";
+import { getAuthData } from "../../../feature/auth/authSlice";
 
 function ContactForm() {
+  const { user } = useSelector(getAuthData);
+
   const {
     register,
     handleSubmit,
@@ -48,6 +51,8 @@ function ContactForm() {
           {...register("email", {
             required: "Email is required!",
           })}
+          defaultValue={user?.email}
+          readOnly={user?.email}
         />
         {errors.email && (
           <p className="text-red-600 text-[14px]">{errors.email?.message}</p>

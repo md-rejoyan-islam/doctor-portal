@@ -78,7 +78,7 @@ const authSlice = createSlice({
       })
       .addCase(userRegister.fulfilled, (state, action) => {
         state.message = action.payload.message;
-        state.user = action.payload.data;
+        // state.user = action.payload.data;
       })
 
       // login

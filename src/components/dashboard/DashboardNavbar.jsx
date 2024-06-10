@@ -10,7 +10,7 @@ import { ImPower } from "react-icons/im";
 const DashboardNavbar = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(getAuthData);
-  const handleSignOut = (e) => {
+  const handleSignOut = () => {
     dispatch(logout());
   };
   const menuItems = (

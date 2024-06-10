@@ -19,6 +19,7 @@ import Payment from "../pages/dashboard/payment/Payment";
 import ForgotPassword from "../pages/main/auth/ForgotPassword";
 import AllFeedbacks from "../pages/dashboard/AllFeedbacks";
 import MyPayment from "../pages/dashboard/MyPayment";
+import Profile from "../pages/dashboard/Profile";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,18 @@ const router = createBrowserRouter([
         element: <MyPayment />,
       },
       {
+        path: "allfeedbacks",
+        element: <AllFeedbacks />,
+      },
+      {
+        path: "payment/:id",
+        element: <Payment />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
         path: "allusers",
         element: (
           <AdminRoute>
@@ -109,14 +122,6 @@ const router = createBrowserRouter([
             <ManageDoctors />
           </AdminRoute>
         ),
-      },
-      {
-        path: "allfeedbacks",
-        element: <AllFeedbacks />,
-      },
-      {
-        path: "payment/:id",
-        element: <Payment />,
       },
     ],
   },

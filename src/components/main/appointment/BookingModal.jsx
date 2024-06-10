@@ -21,7 +21,7 @@ const BookingModal = ({ treatment, selected, setTreatment }) => {
     const booking = {
       appointment: treatment._id,
       appointmentDate: data.date,
-      selectedDate: format(new Date(), "PP"),
+      selectedDate: format(new Date(), "yyyy-MM-dd"),
       treatment: treatment.name,
       patient: "6659e851cd4ac4124f8dfed9",
       patientName: user?.name,

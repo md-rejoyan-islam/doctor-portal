@@ -109,7 +109,7 @@ export const userRegister = createAsyncThunk(
 // login user
 export const userLogin = createAsyncThunk(
   "auth/userLogin",
-  async ({ fields, reset, navigate, from }) => {
+  async ({ fields, reset, navigate, from, setLoading }) => {
     try {
       const response = await axios.post(
         `${API_URL}/api/v1/auth/login`,
@@ -123,6 +123,8 @@ export const userLogin = createAsyncThunk(
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.error.message);
+    } finally {
+      setLoading(false);
     }
   }
 );

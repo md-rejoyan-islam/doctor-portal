@@ -29,6 +29,7 @@ import {
   getAllFeedbackData,
   setFeedbackMessageEmpty,
 } from "./feature/feedback/feedbackSlice.js";
+import HomeAnimation from "./components/animation/HomeAnimation.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -86,14 +87,7 @@ function App() {
     dispatch(setFeedbackMessageEmpty());
   }, [dispatch, message, error]);
 
-  if (loading)
-    return (
-      <>
-        <div className="flex justify-center items-center h-screen">
-          ....loading
-        </div>
-      </>
-    );
+  if (loading) return <HomeAnimation />;
 
   return (
     <>

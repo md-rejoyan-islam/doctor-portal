@@ -8,6 +8,7 @@ import { FaUserDoctor } from "react-icons/fa6";
 import { GiPlagueDoctorProfile } from "react-icons/gi";
 import { VscFeedback } from "react-icons/vsc";
 import { RiMenuFold3Fill } from "react-icons/ri";
+import { ImProfile } from "react-icons/im";
 
 const DashboardLayout = () => {
   const { user } = useSelector(getAuthData);
@@ -40,6 +41,12 @@ const DashboardLayout = () => {
               <RiReservedLine className="text-xl text-secondary" /> My
               Appointments
             </Link>
+          </li>
+          <li>
+            <NavLink to="/dashboard/profile">
+              <ImProfile className="text-xl text-secondary" />
+              My Profile
+            </NavLink>
           </li>
 
           {user.role === "user" && (

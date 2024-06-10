@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import OrDivider from "../../../components/main/OrDivider";
 import LoginWithGoogle from "../../../components/main/LoginWithGoogle";
 import { userLogin } from "../../../feature/auth/authApiSlice";
+import { useState } from "react";
+import { ScaleLoader } from "react-spinners";
 
 const Login = () => {
   const location = useLocation();
@@ -14,6 +16,8 @@ const Login = () => {
 
   const dispath = useDispatch();
 
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -22,6 +26,7 @@ const Login = () => {
   } = useForm();
 
   const handelLogin = (data) => {
+    setLoading(true);
     dispath(
       userLogin({
         fields: {
@@ -30,6 +35,7 @@ const Login = () => {
         reset,
         navigate,
         from,
+        setLoading,
       })
     );
   };
@@ -74,12 +80,18 @@ const Login = () => {
               <Link to={"/forgot-password"}>Forgot Password?</Link>
             </span>
           </div>
-          <input
+          <button
             type="submit"
-            className="py-2 px-4 rounded-md border-zinc-200 cursor-pointer bg-zinc-100 border  w-full hover:bg-gradient-to-r from-primary to-secondary hover:border-transparent hover:text-white font-semibold text-lg"
-            value={"Login"}
-          />
-          {/* {logInError && <p className="text-red-700">{logInError}</p>} */}
+            className="py-2 px-4 rounded-md border-zinc-200 cursor-pointer  border  w-full bg-gradient-to-r from-primary to-secondary border-transparent hover:bg-gradient-to-r hover:from-secondary hover:to-primary text-white font-semibold text-lg"
+          >
+            {loading ? (
+              <div className="flex items-center justify-center">
+                <ScaleLoader color="#fff" height={24} />
+              </div>
+            ) : (
+              "Login"
+            )}
+          </button>
           <p className="my-2 text-center">
             New to Doctors Portal?{" "}
             <Link to={"/register"} className="text-primary hover:underline">

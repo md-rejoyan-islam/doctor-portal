@@ -5,6 +5,7 @@ import OrDivider from "../../../components/main/OrDivider";
 import LoginWithGoogle from "../../../components/main/LoginWithGoogle";
 import { userRegister } from "../../../feature/auth/authApiSlice";
 import { useState } from "react";
+import { ScaleLoader } from "react-spinners";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -95,11 +96,23 @@ const SignUp = () => {
               </p>
             )}
           </div>
-          <input
+          {/* <input
             type="submit"
             className="py-2 px-4 rounded-md border-zinc-200 cursor-pointer bg-zinc-100 border  w-full hover:bg-gradient-to-r from-primary to-secondary hover:border-transparent hover:text-white font-semibold text-lg"
             value={loading ? "loading" : "Sign Up"}
-          />
+          /> */}
+          <button
+            type="submit"
+            className="py-2 px-4 rounded-md border-zinc-200 cursor-pointer  border  w-full bg-gradient-to-r from-primary to-secondary border-transparent hover:bg-gradient-to-r hover:from-secondary hover:to-primary text-white font-semibold text-lg"
+          >
+            {loading ? (
+              <div className="flex items-center justify-center">
+                <ScaleLoader color="#fff" height={24} />
+              </div>
+            ) : (
+              "Sign Up"
+            )}
+          </button>
           <p className="my-2 text-center">
             Already have an account?{" "}
             <Link to={"/login"} className="text-primary hover:underline">
