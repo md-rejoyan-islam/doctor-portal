@@ -38,8 +38,8 @@ const DashboardLayout = () => {
               to="/dashboard"
               className={pathname === "/dashboard" ? "active" : ""}
             >
-              <RiReservedLine className="text-xl text-secondary" /> My
-              Appointments
+              <RiReservedLine className="text-xl text-secondary" />{" "}
+              {user.role === "admin" ? "All Appointments" : "My Appointments"}
             </Link>
           </li>
           <li>
@@ -86,7 +86,7 @@ const DashboardLayout = () => {
           <li>
             <NavLink to="/dashboard/allfeedbacks">
               <VscFeedback className="text-xl text-secondary" />
-              All Feedbacks
+              {user.role === "admin" ? "All Feedbacks" : "My Feedbacks"}
             </NavLink>
           </li>
           <li className="flex-1 flex justify-end ">
