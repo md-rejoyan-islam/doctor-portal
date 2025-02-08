@@ -113,10 +113,17 @@ This project is deployed on Firebase. To deploy your own version:
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Client Side Link
+## Links
 
-<a href="https://doctors-portal-f127f.web.app/">Preview</a>
+<a href="https://doctors-portal-f127f.web.app/">Preview Website</a> <br/>
+<a href="https://test.doctor.kinsust.org">Preview API</a> <br/>
+<a href="https://github.com/md-rejoyan-islam/doctor-portal-server">Server Repository</a>
 
-## Server Side Link
+### CONTACT
 
-<a href="https://doctor-portal-server-vg24.onrender.com">Preview</a>
+If you have any questions or suggestions, feel free to reach out:
+
+- Email :rejoyanislam0014@gmail.com
+- GitHub : [Rejoyan Islam GitHub](https://github.com/md-rejoyan-islam)
+- LinkedIn : [Rejoyan Islam LinkedIn](https://www.linkedin.com/in/md-rejoyan-islam/)
+- Personal Website : [Rejoyan Islam Portfolio](https://md-rejoyan-islam.github.io/)
