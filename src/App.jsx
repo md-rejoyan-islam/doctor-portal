@@ -1,35 +1,34 @@
-import "./App.css";
-import { Toaster } from "react-hot-toast";
-import router from "./routes/router.jsx";
-import { RouterProvider } from "react-router-dom";
 import { useEffect } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
+import { RouterProvider } from "react-router-dom";
+import "./App.css";
+import HomeAnimation from "./components/animation/HomeAnimation.jsx";
+import { getAllAppointments } from "./feature/appointment/appointmentApiSlice.js";
 import {
   loggedInUser,
   onAuthStateChange,
 } from "./feature/auth/authApiSlice.js";
 import { getAuthData, setAuthMessageEmpty } from "./feature/auth/authSlice.js";
+import { allBookings } from "./feature/bookings/bookingApiSlice.js";
 import {
   getBookingData,
   setBookingMessageEmpty,
 } from "./feature/bookings/bookingSlice.js";
-import { toast } from "react-hot-toast";
-import {
-  getAllUsersData,
-  setUsersMessageEmpty,
-} from "./feature/users/userSlice.js";
-import { getAllAppointments } from "./feature/appointment/appointmentApiSlice.js";
 import { getAllDoctors } from "./feature/doctor/doctorApiSlice.js";
 import {
   getAllDoctorsData,
   setDoctorMessageEmpty,
 } from "./feature/doctor/doctorSlice.js";
-import { allBookings } from "./feature/bookings/bookingApiSlice.js";
 import {
   getAllFeedbackData,
   setFeedbackMessageEmpty,
 } from "./feature/feedback/feedbackSlice.js";
-import HomeAnimation from "./components/animation/HomeAnimation.jsx";
+import {
+  getAllUsersData,
+  setUsersMessageEmpty,
+} from "./feature/users/userSlice.js";
+import router from "./routes/router.jsx";
 
 function App() {
   const dispatch = useDispatch();

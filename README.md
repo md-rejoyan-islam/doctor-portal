@@ -18,19 +18,29 @@ Doctors Portal is a web application designed to streamline the process of bookin
   - Tailwind CSS for styling
   - DaisyUI for UI components
   - React Router for navigation
+  - Redux for state management
+  - Axios for API requests
+  - Stripe for payment processing
 
 - **Backend**:
 
   - Node.js
   - Express.js
   - MongoDB
+  - Mongoose
+  - JWT for authentication
+  - Stripe for payment processing
 
 - **Authentication**:
 
   - Firebase Authentication
 
-- **Hosting**:
-  - Firebase Hosting
+## Test Login Credentials
+
+| Email           | Password    | Role  |
+| --------------- | ----------- | ----- |
+| user@gmail.com  | 12345678aA@ | USER  |
+| admin@gmail.com | 12345678aA@ | ADMIN |
 
 ## Setup and Installation
 
@@ -39,7 +49,7 @@ To set up this project locally, follow these steps:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/doctors-portal.git
+   git clone https://github.com/md-rejoyan-islam/doctor-portal doctors-portal
    ```
 
 2. Navigate to the project directory:
@@ -74,7 +84,7 @@ To set up this project locally, follow these steps:
    npm start
    ```
 
-6. Open `http://localhost:3000` in your browser to view the application.
+6. Open `http://localhost:5173` in your browser to view the application.
 
 ## Deployment
 
@@ -116,7 +126,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Links
 
 <a href="https://doctors-portal-f127f.web.app/">Preview Website</a> <br/>
-<a href="https://test.doctor.kinsust.org">Preview API</a> <br/>
+<a href="https://tinyurl.com/33yacxun">Preview API</a> <br/>
 <a href="https://github.com/md-rejoyan-islam/doctor-portal-server">Server Repository</a>
 
 ### CONTACT
