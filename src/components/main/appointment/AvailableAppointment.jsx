@@ -1,8 +1,8 @@
 import { format } from "date-fns";
-import PulseLoader from "react-spinners/PulseLoader";
 import PropTypes from "prop-types";
-import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
 import { getAuthData } from "../../../feature/auth/authSlice";
 
 const AvailableAppointment = ({
@@ -47,10 +47,10 @@ const AvailableAppointment = ({
               <p> price: $ {service?.price}</p>
               <div className="card-actions justify-center py-1">
                 {appointmentData && (
-                  <label
+                  <button
                     disabled={service?.slots?.length === 0}
                     className="btn text-white bg-gradient-to-r from-primary to-secondary hover:bg-gradient-to-r hover:from-secondary hover:to-primary border-0 font-bold"
-                    htmlFor="booking-modal"
+                    // htmlFor="booking-modal"
                     onClick={() => {
                       if (!user) {
                         navigate("/login", {
@@ -62,7 +62,7 @@ const AvailableAppointment = ({
                     }}
                   >
                     BOOK APPOINTMENT
-                  </label>
+                  </button>
                 )}
               </div>
             </div>

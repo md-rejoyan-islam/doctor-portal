@@ -1,13 +1,13 @@
+import { formatDate } from "date-fns";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getAuthData } from "../../feature/auth/authSlice";
 import {
   deleteFeedbackById,
   getAllFeedback,
 } from "../../feature/feedback/feedbackApiSlice";
 import { getAllFeedbackData } from "../../feature/feedback/feedbackSlice";
-import { formatDate } from "date-fns";
 import ConfirmationModal from "./ConfirmationModel";
-import { getAuthData } from "../../feature/auth/authSlice";
 
 function AllFeedbacks() {
   const [deletingFeedback, setDeletingFeedback] = useState(null);
@@ -55,13 +55,13 @@ function AllFeedbacks() {
                 <td>{formatDate(feedback.createdAt, "PP")}</td>
                 <td>{feedback.message}</td>
                 <td>
-                  <label
+                  <button
                     onClick={() => setDeletingFeedback(feedback)}
-                    htmlFor="confirmation-modal"
+                    // htmlFor="confirmation-modal"
                     className="btn btn-sm btn-danger"
                   >
                     Delete
-                  </label>
+                  </button>
                 </td>
               </tr>
             ))}
